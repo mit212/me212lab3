@@ -1,0 +1,21 @@
+<launch>        
+  <!-- 
+       Start an apriltag node using the default settings
+       to connect to an OpenNI device (e.g. Kinect). 
+  -->
+  <node pkg="pr_apriltags" type="pr_apriltags" name="pr_apriltags" output="screen">
+    <param name="~default_tag_size" value="0.083" />
+    <param name="~viewer" value="1" />
+
+    <rosparam command="delete" param="tag_data" />
+    <rosparam param="tag_data">
+      "0": 
+        size: 0.083
+    </rosparam>
+    <rosparam param="tag_family">Tag36h11</rosparam>
+    <remap from="~image" to="/camera/rgb/image_color"/>
+    <remap from="~camera_info" to="/camera/rgb/camera_info"/>
+    <remap from="~marker_array" to="/apriltags/marker_array"/>
+    <remap from="~detections" to="/apriltags/detections"/>
+  </node>
+</launch>

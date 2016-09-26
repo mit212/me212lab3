@@ -1,4 +1,4 @@
 <launch>
-   <node name="tf1" pkg="tf" type="static_transform_publisher" args="0 0 0.44 0.5 0.5 0.5 0.5 map apriltag 10" />
-   <node name="tf2" pkg="tf" type="static_transform_publisher" args="-0.24 0 0.35 -0.5 0.5 -0.5 0.5 base_link camera 10" />
+   <node name="tf_apriltag_map" pkg="tf" type="static_transform_publisher" args="0 0 0.44 0.5 0.5 0.5 0.5 map apriltag 10" />
+   <node name="tf_camera_base" pkg="tf" type="static_transform_publisher" args="-0.24 0 0.35 -0.5 0.5 -0.5 0.5 robot_base camera 10" />
 </launch>

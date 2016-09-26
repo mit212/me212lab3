@@ -25,7 +25,7 @@ cmd "4-pr_apriltag" {
 }
 
 cmd "5-robot" {
-    exec = "rosrun me212bot me212bot.py";
+    exec = "rosrun me212bot me212bot_node.py";
     host = "localhost";
 }
 

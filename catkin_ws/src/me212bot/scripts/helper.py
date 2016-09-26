@@ -47,6 +47,8 @@ def lookupTransform(lr, sourceFrame, targetFrame):
         try:
             t = rospy.Time(0)
             (trans,rot) = lr.lookupTransform(sourceFrame, targetFrame, t)
+            if lr.getLatestCommonTime(sourceFrame, targetFrame) < (rospy.Time.now() - rospy.Duration(1)):
+                return None
             return list(trans) + list(rot)
         except:
             print '[lookupTransform] failed to transform targetFrame %s sourceFrame %s, retry %d' % (targetFrame, sourceFrame, i)

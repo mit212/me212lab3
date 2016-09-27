@@ -51,12 +51,12 @@ def constant_vel_loop():
 def apriltag_callback(data):
     # use apriltag pose detection to find where is the robot
     for detection in data.detections:
-        if detection.id == 0:   # tag id is correct
+        if detection.id == 0:   # tag id is the correct one
             poselist_tag_cam = pose2poselist(detection.pose)
             ## poselist_tag_base = transformPose(??)
             ## poselist_base_tag = invPoselist(??)
             ## poselist_base_map = transformPose(??)
-            pubFrame(br, pose = poselist_base_map, frame_id = '/base_link', parent_frame_id = '/map')
+            pubFrame(br, pose = poselist_base_map, frame_id = '/robot_base', parent_frame_id = '/map')
 
 
 ## navigation control loop (No need to modify)
@@ -72,7 +72,7 @@ def navi_loop():
     
     while not rospy.is_shutdown() :
         # 1. get robot pose
-        robot_pose3d = lookupTransform(lr, '/map', '/base_link')
+        robot_pose3d = lookupTransform(lr, '/map', '/robot_base')
         
         if robot_pose3d is None:
             print '1. Tag not in view, Stop'

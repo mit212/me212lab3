@@ -79,6 +79,7 @@ def navi_loop():
             wcv.desiredWV_R = 0  # right, left
             wcv.desiredWV_L = 0
             velcmd_pub.publish(wcv)  
+            rate.sleep()
             continue
         
         robot_position2d  = robot_pose3d[0:2]

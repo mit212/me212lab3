@@ -19,8 +19,8 @@ cmd "3-kinect" {
     host = "localhost";
 }
 
-cmd "4-pr_apriltag" {
-    exec = "roslaunch pr_apriltags pr_apriltags.launch";
+cmd "4-apriltag" {
+    exec = "roslaunch apriltags apriltags.launch";
     host = "localhost";
 }
 
@@ -41,6 +41,6 @@ script "run" {
     wait ms 500;
     start cmd "2-rviz";
     start cmd "3-kinect";
-    start cmd "4-pr_apriltag";
+    start cmd "4-apriltag";
     start cmd "5-robot";
 }

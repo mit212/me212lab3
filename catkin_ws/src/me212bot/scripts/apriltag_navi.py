@@ -11,7 +11,7 @@ import serial
 import tf.transformations as tfm
 
 from me212bot.msg import WheelCmdVel
-from pr_apriltags.msg import AprilTagDetections
+from apriltags.msg import AprilTagDetections
 from helper import transformPose, pubFrame, cross2d, lookupTransform, pose2poselist, invPoselist, diffrad
 
 

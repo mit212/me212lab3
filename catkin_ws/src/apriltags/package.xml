@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>pr_apriltags</name>
+  <name>apriltags</name>
   <version>0.0.2</version>
   <description>
     ROS wrapper for the Swatbotics C++ port of the Apriltags visual
@@ -28,6 +28,7 @@
   <depend>sensor_msgs</depend>
   <depend>std_msgs</depend>
   <depend>visualization_msgs</depend>
+  <depend>apriltagscpp</depend>
   <depend>yaml-cpp</depend>
   <exec_depend>message_runtime</exec_depend>
 </package>

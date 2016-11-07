@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-# 2.12 Lab 2 me212bot_node: ROS driver running on the pc side to read and send messages to Arduino
+# 2.12 Lab 3 me212bot_node: ROS driver running on the pc side to read and send messages to Arduino
 # Peter Yu Sept 2016
 
 import rospy
@@ -29,7 +29,7 @@ def main():
 
 ## msg handling function (Need to modify)
 def cmdvel_callback(msg):  
-    ## 2. Send msg.desiredVW_R and msg.desiredVW_L to Arduino.
+    ## 2. Send msg.desiredWV_R and msg.desiredWV_L to Arduino.
     ## serialComm.write(??)
     
     return

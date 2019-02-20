@@ -22,7 +22,7 @@ def main():
     odometry_thread.start()
     
     ## 1. Initialize a subscriber
-    ## cmdvel_sub = ??
+    #Create this based on the syntax in the lab handout 
     
     rospy.spin()
 
@@ -30,6 +30,8 @@ def main():
 ## msg handling function (Need to modify)
 def cmdvel_callback(msg):  
     ## 2. Send msg.desiredWV_R and msg.desiredWV_L to Arduino.
+    #Relevant variables are msg.desiredWV_R and msg.desiredWV_L
+    ## strCmd = ??
     ## serialComm.write(??)
     
     return

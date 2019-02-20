@@ -24,6 +24,7 @@ def main():
     
     rospy.sleep(1)
     
+    #TO DO: CHANGE THIS FOR TASK 3. 
     constant_vel = True
     if constant_vel:
         thread = threading.Thread(target = constant_vel_loop)
@@ -35,6 +36,7 @@ def main():
 
 ## sending constant velocity (Need to modify for Task 1)
 def constant_vel_loop():
+    # Create a publisher using the syntax described in the handout
     ## velcmd_pub = ??
     rate = rospy.Rate(100) # 100hz
     
@@ -51,11 +53,27 @@ def constant_vel_loop():
 def apriltag_callback(data):
     # use apriltag pose detection to find where is the robot
     for detection in data.detections:
-        if detection.id == 0:   # tag id is the correct one
-            poselist_tag_cam = pose2poselist(detection.pose)
-            ## poselist_tag_base = transformPose(??)
-            ## poselist_base_tag = invPoselist(??)
-            ## poselist_base_map = transformPose(??)
+        if detection.id == 0:   #FIX THIS: change the number to equal the id on the april tag you're using
+            poselist_tag_cam = pose2poselist(detection.pose) #This is the pose you're transforming
+            ## Relevant frames that are already defined:
+            ## camera, map, robot_base, apriltag
+
+            ## Relevant functions that are defined in a different ros package:
+            ## transformPose(), invPoseList()
+
+            ## Relevant variables already defined:
+            ## lr
+            #TO DO: Convert the poselist_tag_cam into the pose that we want. 
+
+            #HINT: The first argument for transformPose is lr which is already defined in the beginning of this code.
+            #HINT2: The syntax for transformPose should look like:
+            ## transformPose(lr, poselist_someframe_otherframe, 'otherframe', 'newframe')\
+            #HINT3: The syntax for invPoselist should look like:
+            ## invPoselist(poselist)
+
+            ## poselist_tag_base = transformPose(??) #(1) on the lab handout
+            ## poselist_base_tag = invPoselist(??)  #(2) on the lab handout
+            ## poselist_base_map = transformPose(??) #(3) on the lab handout
             pubFrame(br, pose = poselist_base_map, frame_id = '/robot_base', parent_frame_id = '/map')
 
 

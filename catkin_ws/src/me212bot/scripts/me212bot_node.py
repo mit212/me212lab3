@@ -31,6 +31,7 @@ def main():
 def cmdvel_callback(msg):  
     ## 2. Send msg.desiredWV_R and msg.desiredWV_L to Arduino.
     #Relevant variables are msg.desiredWV_R and msg.desiredWV_L
+    #REMEMBER THE NEW LINE CHARACTER AT THE END
     ## strCmd = ??
     ## serialComm.write(??)
     
